@@ -27,7 +27,7 @@ export default class LoginScreen extends React.Component{
     }
 
     userSignUp = (email,password) => {
-        firebase.auth().signInWithEmailAndPassword(email,password)
+        firebase.auth().createUserWithEmailAndPassword(email,password)
         .then((response) => {
             Alert.alert("User Added Successfully")
         })
@@ -44,10 +44,10 @@ export default class LoginScreen extends React.Component{
                 <Header
                 containerStyle = {{backgroundColor : 'cyan'}}
                 centerComponent = {{
-                    text : 'Login',
+                    text : 'Barter System App',
                     style : {
                         fontSize : 25,
-                        fontWeight : 500
+                        fontWeight : 700
                     }
                 }}
                 />
@@ -80,7 +80,7 @@ export default class LoginScreen extends React.Component{
                     this.userLogin(this.state.email,this.state.password)
                 }}
                 >
-                    <Text> Login </Text>
+                    <Text style ={styles.buttonText}> Login </Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity 
@@ -89,7 +89,7 @@ export default class LoginScreen extends React.Component{
                     this.userSignUp(this.state.email,this.state.password)
                 }}
                 >
-                    <Text> Sign Up </Text>
+                    <Text style = {styles.buttonText}> Sign Up </Text>
                 </TouchableOpacity>
                 </View>
             </View>
@@ -103,24 +103,33 @@ const styles = StyleSheet.create({
         height : 50,
         alignSelf : 'center',
         borderWidth : 2,
-        marginTop : 30
+        marginTop : 30,
+        justifyContent : 'center'
     },
     button : {
+        width : 200,
+        height : 30,
         backgroundColor : 'cyan',
         borderWidth : 2,
         alignSelf : 'center',
         borderRadius : 15,
         marginTop : 30,
-        marginRight : 70
+        marginRight : 10
            
     },
     button1 : {
+        width : 200,
+        height : 30,
         backgroundColor : 'cyan',
         borderWidth : 2,
         alignSelf : 'center',
         borderRadius : 15,
-        marginLeft : 50,
-        marginBottom : 310,
-        marginTop : -22  
+        marginRight : 10,
+        marginBottom : 255,
+        marginTop : 20
+    },
+    buttonText : {
+        textAlign : 'center',
+        fontSize : 20
     }
 })
